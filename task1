@@ -1,0 +1,14 @@
+import pandas as pd
+df = pd.read_csv('/content/gender_submission (2).csv')
+df.describe()
+df.info()
+df.head()
+print(df.head())
+print(df.describe())
+print(df.info())
+
+
+# there r total l2 columns and 417 rows and columns have no missing value as its non null
+# passenger id and survived are numerics but  no categoricla data is  present  
+
+#  how many rows/columns, which columns have missing values, and which are categorical vs numerical
