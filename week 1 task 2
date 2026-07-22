@@ -1,0 +1,44 @@
+import pandas as pd
+df = pd.read_csv('/content/gender_submission (2).csv')
+df.describe()
+df.info()
+df.head()
+print(df.head())
+print(df.describe())
+print(df.info())
+# TAsk 2
+# df.fillna() # This line caused the error and is not needed as there are no missing values.
+
+
+# Detect outliers in at least one numerical column using a boxplot
+# Create at least 4 visualizations using matplotlib and seaborn: a histogram, a boxplot, a bar chart, and a correlation heatmap
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 1. Histogram for numerical columns
+df.hist(figsize=(10, 10)) # Fixed figsize syntax
+plt.suptitle('Histograms of Numerical Columns', y=1.02) # Add a super title
+plt.show()
+
+# 2. Boxplot for outlier detection in 'PassengerId'
+plt.figure(figsize=(6, 4))
+sns.boxplot(y='PassengerId', data=df) # Fixed to plot PassengerId for outlier detection
+plt.title('Boxplot of PassengerId')
+plt.show()
+
+# 3. Bar chart for 'Survived' counts
+plt.figure(figsize=(6, 4))
+sns.countplot(x='Survived', data=df) # Changed to countplot for binary categorical data
+plt.title('Count of Survived (0=No, 1=Yes)')
+plt.show()
+
+# 4. Correlation heatmap
+plt.figure(figsize=(6, 5))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm') # Removed unexpected indent
+plt.title('Correlation Heatmap')
+plt.show()
+
+# there r total l2 columns and 417 rows and columns have no missing value as its non null
+# passenger id and survived are numerics but  no categoricla data is  present
+
+#  how many rows/columns, which columns have missing values, and which are categorical vs numerical
